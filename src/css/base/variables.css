@@ -1,0 +1,106 @@
+/*
+  Design tokens for RainTree Immigration.
+
+  Brand colors were sampled directly from the approved mockups
+  (assets/images/mockups/*.jpeg) via pixel-cluster analysis, not guessed:
+    - Dark green sampled at ~#02302A across home/contact mockups.
+    - Gold sampled at ~#D6931F-#D89626 across CTA buttons.
+
+  --color-accent-text exists separately from --color-accent because the
+  raw brand gold (#D89B2A) only contrasts ~2.4:1 against white, which
+  fails WCAG AA (needs 4.5:1) for body text. It's fine for large
+  decorative use, icons, and button fills, but never for small text on a
+  light background — use --color-accent-text (~4.8:1) for that instead.
+*/
+
+:root {
+  /* Brand colors */
+  --color-primary: #0B3D2E;
+  --color-primary-dark: #072A20;
+  --color-primary-light: #12503C;
+
+  --color-accent: #D89B2A;
+  --color-accent-dark: #B97F1B;
+  --color-accent-text: #9C6812;
+
+  /* Neutrals */
+  --color-text: #16241D;
+  --color-text-muted: #52685F;
+  --color-text-on-dark: #F3F6F4;
+  --color-text-on-dark-muted: #B9CBC3;
+
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F6F8F6;
+  --color-border: #E3E8E5;
+  --color-white: #FFFFFF;
+
+  --color-success: #1F8A55;
+  --color-danger: #C0392B;
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: clamp(1.875rem, 1.6rem + 1.2vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Spacing scale (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Shadows (green-tinted for a cohesive premium feel) */
+  --shadow-sm: 0 1px 2px rgba(11, 61, 46, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 61, 46, 0.10);
+  --shadow-lg: 0 20px 48px rgba(11, 61, 46, 0.16);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Z-index scale */
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/*
+  Breakpoint reference (no CSS var equivalent — media queries can't consume
+  custom properties). Keep every @media rule in this codebase aligned to:
+    sm:  480px
+    md:  768px
+    lg:  1024px
+    xl:  1280px
+*/

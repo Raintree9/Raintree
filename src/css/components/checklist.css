@@ -1,0 +1,37 @@
+.checklist {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.checklist__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+.checklist__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background-color: rgba(31, 138, 85, 0.12);
+  color: var(--color-success);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.checklist__icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+@media (min-width: 768px) {
+  .checklist--columns {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-6);
+  }
+}

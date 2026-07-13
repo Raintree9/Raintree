@@ -1,0 +1,558 @@
+[
+  {
+    "id": "schengen",
+    "flag": "🇪🇺",
+    "country": "Schengen",
+    "region": "Europe",
+    "visaType": "Sticker Visa",
+    "lengthOfStay": "Up to 90 Days",
+    "visaValidity": "180 Days (or as granted)",
+    "entryType": "Single / Double / Multiple",
+    "method": "Embassy Submission + Biometrics",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "15–30 Working Days",
+    "documents": [
+      "Original Passport (6 months validity)",
+      "Old Passports (if available)",
+      "Passport Size Photos",
+      "Visa Application Form",
+      "Cover Letter",
+      "Flight Reservation",
+      "Hotel Booking",
+      "Travel Insurance (€30,000 coverage)",
+      "Last 6 Months Bank Statement",
+      "Salary Slips (Last 3 Months)",
+      "Employment Letter / Leave Letter",
+      "Income Tax Returns (ITR)",
+      "Aadhaar Card / PAN Card"
+    ],
+    "featured": true,
+    "featuredOrder": 3
+  },
+  {
+    "id": "united-kingdom",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "visaType": "eVisa (most new visitor visas)",
+    "lengthOfStay": "Up to 6 Months",
+    "visaValidity": "Up to 6 Months",
+    "entryType": "Multiple",
+    "method": "Online + Biometrics",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "15–30 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Size Photo (if required)",
+      "Online Application",
+      "Cover Letter",
+      "Bank Statement",
+      "Salary Slips",
+      "Employment Letter",
+      "Flight Itinerary",
+      "Hotel Booking / Invitation Letter",
+      "ITR (if applicable)"
+    ],
+    "featured": true,
+    "featuredOrder": 2
+  },
+  {
+    "id": "japan",
+    "flag": "🇯🇵",
+    "country": "Japan",
+    "region": "Asia",
+    "visaType": "eVisa / Sticker Visa",
+    "lengthOfStay": "Up to 90 Days",
+    "visaValidity": "Usually 90 Days",
+    "entryType": "Single / Multiple",
+    "method": "Online (eligible) / Embassy",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "5–10 Working Days",
+    "documents": [
+      "Passport",
+      "Photograph",
+      "Visa Application Form",
+      "Bank Statement",
+      "Employment Letter",
+      "Flight Booking",
+      "Hotel Booking",
+      "Travel Itinerary"
+    ],
+    "featured": true,
+    "featuredOrder": 4
+  },
+  {
+    "id": "south-korea",
+    "flag": "🇰🇷",
+    "country": "South Korea",
+    "region": "Asia",
+    "visaType": "eVisa / Sticker Visa",
+    "lengthOfStay": "Up to 90 Days",
+    "visaValidity": "Usually 90 Days",
+    "entryType": "Single / Multiple",
+    "method": "Online (eligible) / Embassy",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Family Visit"
+    ],
+    "processingTime": "10–15 Working Days",
+    "documents": [
+      "Passport",
+      "Photograph",
+      "Visa Form",
+      "Bank Statement",
+      "Employment Letter",
+      "Flight Booking",
+      "Hotel Booking",
+      "Cover Letter"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "australia",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "visaType": "eVisitor / eVisa",
+    "lengthOfStay": "Up to 3 Months per Visit",
+    "visaValidity": "Up to 12 Months",
+    "entryType": "Multiple",
+    "method": "Fully Online",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "15–30 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Online Application",
+      "Bank Statement",
+      "Salary Slips",
+      "Employment Letter",
+      "Cover Letter",
+      "Travel Itinerary",
+      "Invitation Letter (if applicable)"
+    ],
+    "featured": true,
+    "featuredOrder": 1
+  },
+  {
+    "id": "new-zealand",
+    "flag": "🇳🇿",
+    "country": "New Zealand",
+    "region": "Oceania",
+    "visaType": "eVisa",
+    "lengthOfStay": "Up to 6 Months",
+    "visaValidity": "Up to 12 Months",
+    "entryType": "Multiple",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Family Visit"
+    ],
+    "processingTime": "20–35 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Bank Statement",
+      "Employment Letter",
+      "Salary Slips",
+      "Flight Itinerary",
+      "Hotel Booking",
+      "Cover Letter"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "taiwan",
+    "flag": "🇹🇼",
+    "country": "Taiwan",
+    "region": "Asia",
+    "visaType": "eVisa / Sticker Visa",
+    "lengthOfStay": "30–90 Days",
+    "visaValidity": "As Granted",
+    "entryType": "Single / Multiple",
+    "method": "Online (eligible) / Embassy",
+    "purpose": [
+      "Tourism",
+      "Business"
+    ],
+    "processingTime": "7–10 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Visa Form",
+      "Bank Statement",
+      "Flight Booking",
+      "Hotel Booking",
+      "Employment Proof"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "canada",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "North America",
+    "visaType": "Sticker Visa",
+    "lengthOfStay": "Up to 6 Months per Visit",
+    "visaValidity": "Up to 10 Years (or Passport Expiry)",
+    "entryType": "Multiple",
+    "method": "Online + Passport Submission + Biometrics",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "20–45 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Online Application",
+      "Bank Statement (6 Months)",
+      "Salary Slips",
+      "Employment Letter",
+      "Travel History",
+      "Invitation Letter (if applicable)",
+      "Purpose Letter",
+      "Biometrics"
+    ],
+    "featured": true,
+    "featuredOrder": 0
+  },
+  {
+    "id": "singapore",
+    "flag": "🇸🇬",
+    "country": "Singapore",
+    "region": "Asia",
+    "visaType": "eVisa",
+    "lengthOfStay": "Up to 30 Days",
+    "visaValidity": "Up to 2 Years (varies)",
+    "entryType": "Single / Multiple",
+    "method": "Online via Authorized Agent",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "3–5 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Visa Form",
+      "Flight Booking",
+      "Hotel Booking",
+      "Bank Statement",
+      "Cover Letter"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "cambodia",
+    "flag": "🇰🇭",
+    "country": "Cambodia",
+    "region": "Asia",
+    "visaType": "eVisa / Sticker Visa",
+    "lengthOfStay": "Up to 30 Days",
+    "visaValidity": "90 Days",
+    "entryType": "Single",
+    "method": "Online / Visa on Arrival",
+    "purpose": [
+      "Tourism",
+      "Business"
+    ],
+    "processingTime": "3–5 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Visa Application",
+      "Flight Ticket",
+      "Hotel Booking"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "russia",
+    "flag": "🇷🇺",
+    "country": "Russia",
+    "region": "Europe",
+    "visaType": "eVisa",
+    "lengthOfStay": "Up to 16 Days",
+    "visaValidity": "60 Days",
+    "entryType": "Single",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Private Visit"
+    ],
+    "processingTime": "4–10 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Visa Form",
+      "Invitation Letter / Voucher",
+      "Flight Booking",
+      "Hotel Booking",
+      "Travel Insurance"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "china",
+    "flag": "🇨🇳",
+    "country": "China",
+    "region": "Asia",
+    "visaType": "Sticker Visa",
+    "lengthOfStay": "Usually 30–60 Days",
+    "visaValidity": "3 Months / 6 Months / 1 Year",
+    "entryType": "Single / Double / Multiple",
+    "method": "Embassy / Visa Centre",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Family Visit"
+    ],
+    "processingTime": "4–10 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Visa Form",
+      "Flight Reservation",
+      "Hotel Booking",
+      "Bank Statement",
+      "Employment Letter",
+      "Cover Letter"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "indonesia",
+    "flag": "🇮🇩",
+    "country": "Indonesia",
+    "region": "Asia",
+    "visaType": "eVisa / Visa on Arrival",
+    "lengthOfStay": "Up to 30 Days",
+    "visaValidity": "90 Days",
+    "entryType": "Single",
+    "method": "Online / On Arrival",
+    "purpose": [
+      "Tourism",
+      "Business"
+    ],
+    "processingTime": "3–7 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Return Flight Ticket",
+      "Hotel Booking",
+      "Proof of Funds"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "maldives",
+    "flag": "🇲🇻",
+    "country": "Maldives",
+    "region": "Asia",
+    "visaType": "Visa on Arrival",
+    "lengthOfStay": "Up to 30 Days",
+    "visaValidity": "Issued on Arrival",
+    "entryType": "Single",
+    "method": "Airport Immigration",
+    "purpose": [
+      "Tourism"
+    ],
+    "processingTime": "Same Day",
+    "documents": [
+      "Passport",
+      "Return Flight Ticket",
+      "Hotel Booking",
+      "Proof of Sufficient Funds"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "united-arab-emirates",
+    "flag": "🇦🇪",
+    "country": "United Arab Emirates",
+    "region": "Middle East",
+    "visaType": "eVisa",
+    "lengthOfStay": "30 or 60 Days",
+    "visaValidity": "60 Days",
+    "entryType": "Single / Multiple",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "2–5 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Flight Ticket",
+      "Hotel Booking",
+      "Travel Insurance (if required)"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "thailand",
+    "flag": "🇹🇭",
+    "country": "Thailand",
+    "region": "Asia",
+    "visaType": "eVisa / Visa on Arrival (eligible travelers)",
+    "lengthOfStay": "Up to 60 Days",
+    "visaValidity": "Up to 90 Days",
+    "entryType": "Single",
+    "method": "Online / Visa on Arrival",
+    "purpose": [
+      "Tourism",
+      "Family Visit",
+      "Business"
+    ],
+    "processingTime": "3–10 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Visa Form",
+      "Flight Booking",
+      "Hotel Booking",
+      "Bank Statement",
+      "Employment Proof"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "malaysia",
+    "flag": "🇲🇾",
+    "country": "Malaysia",
+    "region": "Asia",
+    "visaType": "eVisa / eNTRI (when available)",
+    "lengthOfStay": "Up to 30 Days",
+    "visaValidity": "Up to 90 Days",
+    "entryType": "Single",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Family Visit"
+    ],
+    "processingTime": "2–5 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Online Application",
+      "Flight Ticket",
+      "Hotel Booking",
+      "Bank Statement"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "sri-lanka",
+    "flag": "🇱🇰",
+    "country": "Sri Lanka",
+    "region": "Asia",
+    "visaType": "Electronic Travel Authorization (ETA)",
+    "lengthOfStay": "Up to 30 Days",
+    "visaValidity": "180 Days",
+    "entryType": "Double Entry",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Transit"
+    ],
+    "processingTime": "1–3 Working Days",
+    "documents": [
+      "Passport",
+      "Return Flight Ticket",
+      "Hotel Booking",
+      "Proof of Funds"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "vietnam",
+    "flag": "🇻🇳",
+    "country": "Vietnam",
+    "region": "Asia",
+    "visaType": "eVisa",
+    "lengthOfStay": "Up to 90 Days",
+    "visaValidity": "Up to 90 Days",
+    "entryType": "Single / Multiple",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Family Visit"
+    ],
+    "processingTime": "3–5 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo",
+      "Digital Passport Copy",
+      "Online Application"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "hong-kong",
+    "flag": "🇭🇰",
+    "country": "Hong Kong",
+    "region": "Asia",
+    "visaType": "Online Pre-arrival Registration (where applicable) / eVisa (certain categories)",
+    "lengthOfStay": "Up to 14 Days (Indian visitors with valid PAR)",
+    "visaValidity": "6 Months (PAR validity)",
+    "entryType": "Multiple (PAR)",
+    "method": "Online",
+    "purpose": [
+      "Tourism",
+      "Business",
+      "Family Visit"
+    ],
+    "processingTime": "1–5 Working Days",
+    "documents": [
+      "Passport",
+      "Passport Photo (if applicable)",
+      "Online Registration / Visa Form",
+      "Flight Booking",
+      "Hotel Booking",
+      "Bank Statement",
+      "Cover Letter"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  }
+]

@@ -1,0 +1,163 @@
+/* Home page — layout that's specific to this page's composition.
+   Shared widgets (cards, buttons, banners) live in src/css/components/. */
+
+.hero {
+  padding-block: var(--space-16) var(--space-12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero banner: the official wide brand banner (already contains the
+   wordmark/tagline/service icons), full-width above the fold, with the
+   real accessible heading/CTA content stacked below it — a raster image
+   can't host interactive buttons or be read by a screen reader, so the
+   banner's baked-in message is echoed in real HTML via the alt text and
+   this content block. */
+.hero__banner {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: var(--space-10);
+}
+
+.hero__banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero__content {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero__title {
+  margin-bottom: var(--space-5);
+}
+
+.hero__title .accent {
+  color: var(--color-accent-text);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.hero-badges {
+  margin-top: var(--space-12);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  padding: var(--space-2);
+}
+
+.hero-badges .info-card {
+  padding: var(--space-4);
+  align-items: center;
+}
+
+.hero-badges .info-card__label {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .hero-badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .hero__actions .btn {
+    width: 100%;
+  }
+}
+
+/* Section header with a title on the left and a "view all" link on the
+   right (Popular Destinations). Falls back to stacked/centered when the
+   default .section-header--center is used instead. */
+.section-header--split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+  max-width: none;
+}
+
+@media (max-width: 599px) {
+  .section-header--split {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Testimonials: horizontal scroll-snap carousel */
+.testimonial-carousel {
+  position: relative;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--container-padding);
+  padding-block: var(--space-2);
+  scrollbar-width: none;
+}
+
+.testimonial-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-track > li {
+  flex: 0 0 min(360px, 85vw);
+  scroll-snap-align: start;
+}
+
+.testimonial-carousel__controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.testimonial-carousel__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.testimonial-carousel__btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.testimonial-carousel__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.testimonial-carousel__btn--prev svg {
+  transform: rotate(180deg);
+}
+
+/* Data-driven grids show this while src/data/countries.json is loading. */
+.data-loading,
+.data-error {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  grid-column: 1 / -1;
+}

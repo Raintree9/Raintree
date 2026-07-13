@@ -1,0 +1,12 @@
+/* About page — layout specific to this page's composition.
+   Every section reuses existing shared components (.detail-row,
+   .feature-card, .info-card, .service-card) — nothing new needed here
+   beyond this file existing for consistency with the other pages. */
+
+.about-stats {
+  margin-top: var(--space-8);
+}
+
+.about-stats .info-card {
+  padding: var(--space-4);
+}

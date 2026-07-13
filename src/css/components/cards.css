@@ -1,0 +1,301 @@
+.card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.card--hoverable:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card--hoverable:hover {
+    transform: none;
+  }
+}
+
+/* Service card: icon + image + title + description + link */
+.service-card {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.service-card__media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.service-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-card__body {
+  padding: var(--space-6);
+}
+
+/* Split layout for image-bearing service cards (Home, About). The bare
+   .service-card class is also used for icon-only overview cards on the
+   Services page with no media element, so this stays a separate modifier
+   rather than a change to the base class. */
+.service-card--media {
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: stretch;
+}
+
+.service-card--media .service-card__media {
+  aspect-ratio: auto;
+}
+
+.service-card--media .service-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 599px) {
+  .service-card--media {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card--media .service-card__media {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.service-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-4);
+}
+
+.service-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-card__title {
+  margin-bottom: var(--space-2);
+}
+
+/* Spacing only — color/gap/hover behavior comes from the shared
+   .link-arrow class this is always paired with in markup. */
+.service-card__link {
+  margin-top: var(--space-4);
+}
+
+/* Destination card: flag + photo + name + label + arrow link */
+.destination-card {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.destination-card__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+
+.destination-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.destination-card:hover .destination-card__media img {
+  transform: scale(1.06);
+}
+
+.destination-card__body {
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.destination-card__name {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.destination-card__label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.destination-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+  transition: background-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.destination-card__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.destination-card:hover .destination-card__arrow {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+/* Feature card: icon + title + description (Why Choose Us / Core Values) */
+.feature-card {
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.feature-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.feature-card__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.feature-card__title {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.feature-card__desc {
+  font-size: var(--text-sm);
+}
+
+/* Testimonial card */
+.testimonial-card {
+  padding: var(--space-6);
+}
+
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.testimonial-card__stars svg {
+  width: 16px;
+  height: 16px;
+}
+
+.testimonial-card__quote {
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: var(--space-5);
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.testimonial-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Used until real client photos are available: initials on a brand-gold
+   gradient instead of a broken/missing <img>. Decorative — the visible
+   name text next to it already identifies the person. */
+.testimonial-card__avatar--initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--color-primary-dark);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+
+.testimonial-card__name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.testimonial-card__origin {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Info card: icon + label + value (country detail grid, contact methods) */
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+}
+
+.info-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.info-card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.info-card__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.info-card__value {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}

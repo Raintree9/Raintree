@@ -1,0 +1,27 @@
+{
+  "name": "RainTree Immigration",
+  "short_name": "RainTree",
+  "description": "Visa and immigration consultancy — visitor visas, work permits, study abroad, permanent residency, and business visas.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0B3D2E",
+  "icons": [
+    {
+      "src": "assets/images/brand/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/brand/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

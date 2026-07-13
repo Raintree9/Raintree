@@ -1,0 +1,233 @@
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.section {
+  padding-block: var(--space-20);
+  /* Any section used as a #fragment jump target (e.g. services.html#work-permit)
+     needs this so its heading clears the sticky header instead of hiding under it. */
+  scroll-margin-top: 96px;
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section-header {
+  max-width: 640px;
+  margin-bottom: var(--space-10);
+}
+
+.section-header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Shared interior-page hero: eyebrow + title + lead text, centered, no
+   media. Used by every page except Home (which has the real banner photo). */
+.page-hero {
+  padding-block: var(--space-16) var(--space-12);
+  text-align: center;
+}
+
+.page-hero__content {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.page-hero__title {
+  margin-bottom: var(--space-5);
+}
+
+.page-hero__title .accent {
+  color: var(--color-accent-text);
+}
+
+/* Shared media/content split row — alternating image-and-text blocks used
+   by Services (detailed service sections) and About (Who We Are, etc.). */
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.detail-row + .detail-row {
+  margin-top: var(--space-20);
+}
+
+.detail-row--reverse .detail-row__media {
+  order: 2;
+}
+
+.detail-row__media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Portrait-oriented photography (Services page: Visitor Visa, Work Permit)
+   needs a taller image and a narrower image column so the row doesn't
+   tower over its text. Scoped so About's team photo keeps the 4:3 default. */
+.detail-row--portrait {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+/* .detail-row--reverse flips visual order via `order`, not track order, so
+   the asymmetric split above must flip too or the image ends up stretched
+   into the wider text track. */
+.detail-row--portrait.detail-row--reverse {
+  grid-template-columns: 1.25fr 0.75fr;
+}
+
+.detail-row--portrait .detail-row__media {
+  aspect-ratio: 4 / 5;
+}
+
+.detail-row__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-row__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-5);
+}
+
+.detail-row__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.detail-row__title {
+  margin-bottom: var(--space-4);
+}
+
+.detail-row__desc {
+  margin-bottom: var(--space-6);
+}
+
+.detail-row .checklist {
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 1023px) {
+  .detail-row {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-row--reverse .detail-row__media {
+    order: 0;
+  }
+
+  .detail-row__media {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .detail-row--portrait .detail-row__media {
+    max-width: 400px;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* Collapses earlier than the generic .grid--2 so the internally split
+   .service-card--media items (image column + text column) never have to
+   share a cramped outer 2-column track on tablet widths. */
+@media (max-width: 1023px) {
+  .grid--services {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid--4,
+  .grid--5,
+  .grid--6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid--2,
+  .grid--4,
+  .grid--5,
+  .grid--6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .grid--2,
+  .grid--4,
+  .grid--5,
+  .grid--6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Global accessibility ---------- */
+
+/* Dark green outline: ~12:1 against the white/off-white backgrounds most
+   of the site uses. The brand gold (--color-accent) only manages ~2.4:1
+   against white — well under the 3:1 minimum for a visible UI focus
+   indicator — so it's reserved for the dark-background override below. */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Header, footer, and CTA banners are dark green themselves, so the
+   default dark-green outline would be invisible against them. Element
+   type is included in each selector so this reliably outranks
+   same-specificity component rules like .btn:focus-visible regardless
+   of source order. */
+.site-header a:focus-visible,
+.site-header button:focus-visible,
+.site-footer a:focus-visible,
+.site-footer button:focus-visible,
+.cta-banner a:focus-visible,
+.cta-banner button:focus-visible {
+  outline-color: var(--color-text-on-dark);
+}
+
+/* Respect users who disable smooth scrolling at the OS level; reset.css
+   also covers this, kept here so main.css is self-descriptive on its own. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

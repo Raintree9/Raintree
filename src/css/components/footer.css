@@ -1,0 +1,123 @@
+.site-footer {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-on-dark-muted);
+}
+
+.site-footer__main {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-16) var(--container-padding) var(--space-12);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr 0.9fr 1.2fr;
+  gap: var(--space-10);
+}
+
+.footer-brand__desc {
+  color: var(--color-text-on-dark-muted);
+  font-size: var(--text-sm);
+  margin-block: var(--space-4);
+  max-width: 32ch;
+}
+
+.footer-brand__social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.footer-brand__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.08);
+  transition: background-color var(--transition-fast);
+}
+
+.footer-brand__social a:hover,
+.footer-brand__social a:focus-visible {
+  background-color: var(--color-accent);
+}
+
+.footer-brand__social svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-on-dark);
+}
+
+.footer-col__title {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-4);
+}
+
+.footer-col__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.footer-col__list a {
+  font-size: var(--text-sm);
+  color: var(--color-text-on-dark-muted);
+}
+
+.footer-col__list a:hover {
+  color: var(--color-accent);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.footer-contact-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-accent);
+}
+
+.site-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer__bottom-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-5) var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  font-size: var(--text-xs);
+}
+
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.site-footer__legal a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 1023px) {
+  .site-footer__main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 599px) {
+  .site-footer__main {
+    grid-template-columns: 1fr;
+  }
+}
