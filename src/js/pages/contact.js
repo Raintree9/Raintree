@@ -29,23 +29,19 @@ function validateField(field) {
   return true;
 }
 
-/**
- * This is a client-side-only form: it validates input and shows a success
- * state, but nothing is actually transmitted anywhere yet. Wire the fetch
- * call below up to a real endpoint (form backend, serverless function, or
- * email API) before relying on this to deliver messages.
- */
 function initContactForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
 
   const fields = [...form.querySelectorAll("input[required], select[required], textarea[required]")];
+  const errorNote = document.querySelector("[data-form-error]");
+  const submitBtn = form.querySelector("button[type='submit']");
 
   fields.forEach((field) => {
     field.addEventListener("blur", () => validateField(field));
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const allValid = fields.map(validateField).every(Boolean);
     if (!allValid) {
@@ -53,11 +49,29 @@ function initContactForm() {
       return;
     }
 
-    form.hidden = true;
-    const success = document.querySelector("[data-form-success]");
-    if (success) {
-      success.hidden = false;
-      success.focus();
+    if (errorNote) errorNote.hidden = true;
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) throw new Error(`Formspree responded with ${response.status}`);
+
+      form.hidden = true;
+      const success = document.querySelector("[data-form-success]");
+      if (success) {
+        success.hidden = false;
+        success.focus();
+      }
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      if (errorNote) errorNote.hidden = false;
+    } finally {
+      submitBtn.disabled = false;
     }
   });
 }

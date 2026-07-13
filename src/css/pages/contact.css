@@ -73,6 +73,25 @@
   height: 28px;
 }
 
+.contact-form-error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius-md);
+  background-color: rgba(192, 57, 43, 0.08);
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+
+.contact-form-error svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 @media (max-width: 1023px) {
   .contact-main {
     grid-template-columns: 1fr;

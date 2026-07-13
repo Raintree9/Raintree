@@ -197,7 +197,12 @@
               Fill out the form and our team will get back to you as soon as possible.
             </p>
 
-            <form data-contact-form novalidate>
+            <form data-contact-form novalidate action="https://formspree.io/f/meeyqlrn" method="POST">
+              <p class="contact-form-error" data-form-error role="alert" hidden>
+                <svg aria-hidden="true"><use href="assets/icons/sprite.svg#icon-shield-check"></use></svg>
+                <span>Something went wrong sending your message. Please try again, or call us directly.</span>
+              </p>
+
               <div class="form-row">
                 <div class="form-field">
                   <label class="form-field__label" for="name">Your Name <span class="required">*</span></label>

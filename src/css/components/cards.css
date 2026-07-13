@@ -209,6 +209,15 @@
   margin-bottom: var(--space-4);
 }
 
+/* The 5 stars are wrapped in a single aria-hidden span (so screen readers
+   get one "Rated 5 out of 5 stars" label instead of 5 unlabeled icons).
+   The global reset makes <svg> display:block, so without this the span
+   stacks its block-level star children vertically instead of in a row. */
+.testimonial-card__stars span[aria-hidden] {
+  display: inline-flex;
+  gap: 2px;
+}
+
 .testimonial-card__stars svg {
   width: 16px;
   height: 16px;
