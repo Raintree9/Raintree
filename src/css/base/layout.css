@@ -51,7 +51,7 @@
    by Services (detailed service sections) and About (Who We Are, etc.). */
 .detail-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-12);
   align-items: center;
 }
@@ -73,16 +73,25 @@
 
 /* Portrait-oriented photography (Services page: Visitor Visa, Work Permit)
    needs a taller image and a narrower image column so the row doesn't
-   tower over its text. Scoped so About's team photo keeps the 4:3 default. */
-.detail-row--portrait {
-  grid-template-columns: 0.75fr 1.25fr;
-}
+   tower over its text. Scoped so About's team photo keeps the 4:3 default.
+   Desktop-only (min-width matches the mobile collapse breakpoint below):
+   .detail-row--portrait.detail-row--reverse has higher specificity (two
+   classes) than the mobile ".detail-row { grid-template-columns: ... }"
+   collapse rule (one class), so if this weren't scoped to desktop it would
+   win the cascade at mobile widths too and keep the row split into two
+   columns instead of collapsing to one — exactly the kind of "won't shrink
+   below content width" overflow this file is otherwise built to avoid. */
+@media (min-width: 1024px) {
+  .detail-row--portrait {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  }
 
-/* .detail-row--reverse flips visual order via `order`, not track order, so
-   the asymmetric split above must flip too or the image ends up stretched
-   into the wider text track. */
-.detail-row--portrait.detail-row--reverse {
-  grid-template-columns: 1.25fr 0.75fr;
+  /* .detail-row--reverse flips visual order via `order`, not track order, so
+     the asymmetric split above must flip too or the image ends up stretched
+     into the wider text track. */
+  .detail-row--portrait.detail-row--reverse {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  }
 }
 
 .detail-row--portrait .detail-row__media {
@@ -126,7 +135,7 @@
 
 @media (max-width: 1023px) {
   .detail-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .detail-row--reverse .detail-row__media {
@@ -149,19 +158,19 @@
 }
 
 .grid--2 {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .grid--4 {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid--5 {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid--6 {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 /* Collapses earlier than the generic .grid--2 so the internally split
@@ -169,7 +178,7 @@
    share a cramped outer 2-column track on tablet widths. */
 @media (max-width: 1023px) {
   .grid--services {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -177,7 +186,7 @@
   .grid--4,
   .grid--5,
   .grid--6 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -186,7 +195,7 @@
   .grid--4,
   .grid--5,
   .grid--6 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -195,7 +204,7 @@
   .grid--4,
   .grid--5,
   .grid--6 {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

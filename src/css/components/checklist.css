@@ -11,6 +11,13 @@
   color: var(--color-text);
 }
 
+/* Flex items default to min-width:auto (their own content's min-content
+   size), which can force this row — and the grid track containing it —
+   wider than its share of the page if the label text can't shrink enough. */
+.checklist__item > span {
+  min-width: 0;
+}
+
 .checklist__icon {
   display: inline-flex;
   align-items: center;
@@ -31,7 +38,7 @@
 
 @media (min-width: 768px) {
   .checklist--columns {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: var(--space-6);
   }
 }

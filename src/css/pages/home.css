@@ -51,7 +51,7 @@
 .hero-badges {
   margin-top: var(--space-12);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
   padding: var(--space-2);
 }
@@ -67,7 +67,17 @@
 
 @media (max-width: 767px) {
   .hero-badges {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Matches the .grid--2/4/5/6 convention: 2 columns is still cramped once
+   you factor in the fixed-size icon, so drop to 1 column on the narrowest
+   phones (e.g. a card with icon + "Transparent Process" no longer has
+   room to wrap "Transparent" without it clipping past the card edge). */
+@media (max-width: 479px) {
+  .hero-badges {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

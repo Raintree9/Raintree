@@ -6,7 +6,7 @@
 
 .detail-hero__card {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   gap: var(--space-8);
   overflow: hidden;
   align-items: stretch;
@@ -53,7 +53,7 @@
 
 @media (max-width: 767px) {
   .detail-hero__card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .detail-hero__body {
@@ -67,7 +67,7 @@
 
 .detail-documents {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: var(--space-8);
   margin-top: var(--space-8);
   align-items: start;
@@ -83,7 +83,7 @@
 
 @media (max-width: 1023px) {
   .detail-documents {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
