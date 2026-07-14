@@ -836,12 +836,12 @@ strong {
     padding: var(--space-6) var(--container-padding);
     gap: var(--space-6);
     overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform var(--transition-base);
+    clip-path: inset(0 0 0 100%);
+    transition: clip-path var(--transition-base);
   }
 
   .main-nav.is-open {
-    transform: translateX(0);
+    clip-path: inset(0 0 0 0%);
   }
 
   .main-nav__list {
