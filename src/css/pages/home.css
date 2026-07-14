@@ -105,9 +105,14 @@
   }
 }
 
-/* Testimonials: horizontal scroll-snap carousel */
+/* Testimonials: horizontal scroll-snap carousel. overflow:hidden is
+   load-bearing: .testimonial-track's own overflow-x:auto clips it visually,
+   but its ~864px intrinsic content width still leaks into the page's
+   scrollable area unless an outer ancestor also clips — that phantom width
+   is what makes mobile browsers zoom the whole page out on load. */
 .testimonial-carousel {
   position: relative;
+  overflow: hidden;
 }
 
 .testimonial-track {
