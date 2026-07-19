@@ -46,6 +46,18 @@
   gap: var(--space-3);
 }
 
+.service-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.filter-pill--lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
 .countries-count {
   margin-bottom: var(--space-6);
   font-size: var(--text-sm);

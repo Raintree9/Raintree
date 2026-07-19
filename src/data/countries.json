@@ -1,6 +1,7 @@
 [
   {
     "id": "schengen",
+    "serviceType": "visitor-visa",
     "flag": "🇪🇺",
     "country": "Schengen",
     "region": "Europe",
@@ -35,6 +36,7 @@
   },
   {
     "id": "united-kingdom",
+    "serviceType": "visitor-visa",
     "flag": "🇬🇧",
     "country": "United Kingdom",
     "region": "Europe",
@@ -66,6 +68,7 @@
   },
   {
     "id": "japan",
+    "serviceType": "visitor-visa",
     "flag": "🇯🇵",
     "country": "Japan",
     "region": "Asia",
@@ -95,6 +98,7 @@
   },
   {
     "id": "south-korea",
+    "serviceType": "visitor-visa",
     "flag": "🇰🇷",
     "country": "South Korea",
     "region": "Asia",
@@ -124,6 +128,7 @@
   },
   {
     "id": "australia",
+    "serviceType": "visitor-visa",
     "flag": "🇦🇺",
     "country": "Australia",
     "region": "Oceania",
@@ -154,6 +159,7 @@
   },
   {
     "id": "new-zealand",
+    "serviceType": "visitor-visa",
     "flag": "🇳🇿",
     "country": "New Zealand",
     "region": "Oceania",
@@ -182,6 +188,7 @@
   },
   {
     "id": "taiwan",
+    "serviceType": "visitor-visa",
     "flag": "🇹🇼",
     "country": "Taiwan",
     "region": "Asia",
@@ -209,6 +216,7 @@
   },
   {
     "id": "canada",
+    "serviceType": "visitor-visa",
     "flag": "🇨🇦",
     "country": "Canada",
     "region": "North America",
@@ -240,6 +248,7 @@
   },
   {
     "id": "singapore",
+    "serviceType": "visitor-visa",
     "flag": "🇸🇬",
     "country": "Singapore",
     "region": "Asia",
@@ -268,6 +277,7 @@
   },
   {
     "id": "cambodia",
+    "serviceType": "visitor-visa",
     "flag": "🇰🇭",
     "country": "Cambodia",
     "region": "Asia",
@@ -293,6 +303,7 @@
   },
   {
     "id": "russia",
+    "serviceType": "visitor-visa",
     "flag": "🇷🇺",
     "country": "Russia",
     "region": "Europe",
@@ -321,6 +332,7 @@
   },
   {
     "id": "china",
+    "serviceType": "visitor-visa",
     "flag": "🇨🇳",
     "country": "China",
     "region": "Asia",
@@ -350,6 +362,7 @@
   },
   {
     "id": "indonesia",
+    "serviceType": "visitor-visa",
     "flag": "🇮🇩",
     "country": "Indonesia",
     "region": "Asia",
@@ -375,6 +388,7 @@
   },
   {
     "id": "maldives",
+    "serviceType": "visitor-visa",
     "flag": "🇲🇻",
     "country": "Maldives",
     "region": "Asia",
@@ -398,6 +412,7 @@
   },
   {
     "id": "united-arab-emirates",
+    "serviceType": "visitor-visa",
     "flag": "🇦🇪",
     "country": "United Arab Emirates",
     "region": "Middle East",
@@ -424,6 +439,7 @@
   },
   {
     "id": "thailand",
+    "serviceType": "visitor-visa",
     "flag": "🇹🇭",
     "country": "Thailand",
     "region": "Asia",
@@ -452,6 +468,7 @@
   },
   {
     "id": "malaysia",
+    "serviceType": "visitor-visa",
     "flag": "🇲🇾",
     "country": "Malaysia",
     "region": "Asia",
@@ -479,6 +496,7 @@
   },
   {
     "id": "sri-lanka",
+    "serviceType": "visitor-visa",
     "flag": "🇱🇰",
     "country": "Sri Lanka",
     "region": "Asia",
@@ -504,6 +522,7 @@
   },
   {
     "id": "vietnam",
+    "serviceType": "visitor-visa",
     "flag": "🇻🇳",
     "country": "Vietnam",
     "region": "Asia",
@@ -529,6 +548,7 @@
   },
   {
     "id": "hong-kong",
+    "serviceType": "visitor-visa",
     "flag": "🇭🇰",
     "country": "Hong Kong",
     "region": "Asia",

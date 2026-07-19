@@ -7,12 +7,10 @@
   overflow: hidden;
 }
 
-/* Hero banner: the official wide brand banner (already contains the
-   wordmark/tagline/service icons), full-width above the fold, with the
-   real accessible heading/CTA content stacked below it — a raster image
-   can't host interactive buttons or be read by a screen reader, so the
-   banner's baked-in message is echoed in real HTML via the alt text and
-   this content block. */
+/* Hero banner: an original illustrated SVG (passport, boarding pass, and
+   flight path in the brand palette) rather than a stock/real photo, full-
+   width above the fold, with the real accessible heading/CTA content
+   stacked below it. */
 .hero__banner {
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -20,7 +18,7 @@
   margin-bottom: var(--space-10);
 }
 
-.hero__banner img {
+.hero__illustration {
   display: block;
   width: 100%;
   height: auto;

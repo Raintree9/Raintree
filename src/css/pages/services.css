@@ -1,3 +1,165 @@
 /* Services page — layout specific to this page's composition.
-   .page-hero and .detail-row live in main.css — both are shared across
-   multiple interior pages (Services, About). */
+   .detail-row lives in main.css and is shared with About. This page uses
+   its own split hero (.services-hero) instead of the shared .page-hero
+   since it needs an illustration column, not just centered text. */
+
+.services-hero {
+  padding-block: var(--space-16) var(--space-12);
+}
+
+.services-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.services-hero__title {
+  margin-bottom: var(--space-5);
+}
+
+.services-hero__title .accent {
+  color: var(--color-accent-text);
+}
+
+.services-hero__media svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  .services-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+  }
+
+  .services-hero__media {
+    order: -1;
+    max-width: 380px;
+    margin-inline: auto;
+  }
+}
+
+/* Application status tracker + Why Clients Choose Us panels */
+.services-trust {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.services-trust__panel {
+  padding: var(--space-8);
+}
+
+.services-trust__title {
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 1023px) {
+  .services-trust {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.status-tracker {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-2);
+  position: relative;
+}
+
+.status-tracker::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    var(--color-border) 0,
+    var(--color-border) 6px,
+    transparent 6px,
+    transparent 14px
+  );
+  background-size: 14px 1px;
+  z-index: 0;
+}
+
+.status-tracker__step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.status-tracker__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.status-tracker__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.status-tracker__step--done .status-tracker__icon {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+.status-tracker__step--active .status-tracker__icon {
+  border-color: var(--color-accent);
+  color: var(--color-accent-text);
+  box-shadow: 0 0 0 4px rgba(216, 155, 42, 0.15);
+}
+
+.status-tracker__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.status-tracker__status {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.status-tracker__step--done .status-tracker__status {
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.status-tracker__step--active .status-tracker__status {
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+@media (max-width: 599px) {
+  .status-tracker {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5);
+  }
+
+  .status-tracker::before {
+    display: none;
+  }
+
+  .status-tracker__step {
+    flex-direction: row;
+    text-align: left;
+  }
+}

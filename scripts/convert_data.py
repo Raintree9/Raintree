@@ -86,6 +86,9 @@ def parse_summary_rows(rows):
 
         record = {
             "id": slugify(name),
+            # The raw CSV only covers visitor-visa destinations today; work
+            # permit is a separate, not-yet-populated set (see countries.js).
+            "serviceType": "visitor-visa",
             "flag": flag,
             "country": name,
             "region": REGION_BY_FLAG.get(flag, "Other"),
