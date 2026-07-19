@@ -33,6 +33,8 @@ DEST_DESTINATIONS = ROOT / "assets" / "images" / "destinations"
 DEST_SERVICES = ROOT / "assets" / "images" / "services"
 DEST_TEAM = ROOT / "assets" / "images" / "team"
 DEST_TESTIMONIALS = ROOT / "assets" / "images" / "testimonials"
+HERO_SOURCE_DIR = ROOT / "assets" / "images" / "hero animation"
+DEST_HERO = ROOT / "assets" / "images" / "hero"
 
 JPEG_QUALITY = 82
 WEBP_QUALITY = 82
@@ -81,10 +83,32 @@ TESTIMONIALS = {
 
 TEAM_BIAS = 0.35  # About page team photo, favor faces over table
 
+# Home hero slideshow. These sources are mostly square/portrait (an
+# illustration, a studio photo, a travel collage, an office photo) going
+# into a slide panel that's roughly 4:5 (see .hero-slideshow__photo), so a
+# gentle 4:5 crop keeps each composition intact instead of the 2:1 full-
+# banner crop this file uses elsewhere, which would slice most of these
+# apart. Format: slide id -> (source stem, crop bias, optional pre-crop
+# box in source pixels applied before the ratio crop).
+HERO_SLIDES = {
+    # two travelers illustration — already near-square, centered crop
+    "slide-visa-experts": ("2df396f8c0e461402dc1e4644407203e", 0.5, None),
+    # travel-landmarks collage — centered crop keeps the main globe/figure;
+    # only trims the decorative signpost/food icons at the edges
+    "slide-destinations": ("9d943e19954282657dd175a80cb49f6f", 0.5, None),
+    # woman with suitcase + passport — top-weighted to keep her face and
+    # the passport in frame, crop the legs/suitcase at the bottom
+    "slide-process": ("5de439359b0833f83f2a20d6959407d1", 0.15, None),
+    # support agent — pre-crop excludes a third-party branded mug in the
+    # foreground (x:0-480 of the original), then top-weighted for her face
+    "slide-support": ("8f957f14100910bdfa276291f9f6b567", 0.25, (480, 0, 1024, 1024)),
+}
+
 DESTINATION_WIDTHS = [480, 800, 1200]
 SERVICE_WIDTHS = [640, 960, 1280]
 TEAM_WIDTHS = [640, 960, 1280]
 TESTIMONIAL_WIDTHS = [128, 256]
+HERO_WIDTHS = [640, 960, 1280]
 
 
 def find_source(stem):
@@ -154,6 +178,17 @@ def process_testimonials():
         print(f"  testimonials/{name}: {cropped.size} -> {TESTIMONIAL_WIDTHS}")
 
 
+def process_hero_slides():
+    for name, (stem, bias, pre_crop) in HERO_SLIDES.items():
+        src = HERO_SOURCE_DIR / f"{stem}.jpg"
+        img = Image.open(src)
+        if pre_crop:
+            img = img.crop(pre_crop)
+        cropped = crop_to_ratio(img, 4 / 5, bias)
+        export_sizes(cropped, DEST_HERO, name, HERO_WIDTHS)
+        print(f"  hero/{name}: {cropped.size} -> {HERO_WIDTHS}")
+
+
 def main():
     print("Destinations:")
     process_destinations()
@@ -163,6 +198,8 @@ def main():
     process_team()
     print("Testimonials:")
     process_testimonials()
+    print("Hero slideshow:")
+    process_hero_slides()
     print("Done.")
 
 
