@@ -142,9 +142,64 @@ function initTestimonialCarousel() {
   });
 }
 
+function initHeroSlideshow() {
+  const root = document.querySelector("[data-hero-slideshow]");
+  if (!root) return;
+
+  const slides = Array.from(root.querySelectorAll("[data-slide]"));
+  const dots = Array.from(root.querySelectorAll("[data-slide-dot]"));
+  if (slides.length < 2) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let index = 0;
+  let timer = null;
+
+  function show(nextIndex) {
+    slides[index].classList.remove("is-active");
+    dots[index]?.classList.remove("is-active");
+    dots[index]?.setAttribute("aria-selected", "false");
+
+    index = nextIndex;
+
+    slides[index].classList.add("is-active");
+    dots[index]?.classList.add("is-active");
+    dots[index]?.setAttribute("aria-selected", "true");
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function start() {
+    stop();
+    if (reduceMotion || document.hidden) return;
+    timer = setInterval(() => show((index + 1) % slides.length), 5000);
+  }
+
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      show(dotIndex);
+      start();
+    });
+  });
+
+  root.addEventListener("mouseenter", stop);
+  root.addEventListener("mouseleave", start);
+  root.addEventListener("focusin", stop);
+  root.addEventListener("focusout", start);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  start();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   setCopyrightYear();
+  initHeroSlideshow();
   initTestimonialCarousel();
   renderFeaturedDestinations();
   renderTestimonials();

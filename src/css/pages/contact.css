@@ -85,6 +85,14 @@
   font-size: var(--text-sm);
 }
 
+/* An author stylesheet's `display` always wins over the browser's built-in
+   [hidden] { display: none }, so setting display:flex above means the
+   `hidden` attribute alone can't hide this element — it needs its own,
+   higher-specificity rule to actually take effect. */
+.contact-form-error[hidden] {
+  display: none;
+}
+
 .contact-form-error svg {
   width: 20px;
   height: 20px;
