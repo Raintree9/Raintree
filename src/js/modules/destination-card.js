@@ -30,6 +30,10 @@ export const PHOTO_COUNTRIES = new Set([
   "vietnam",
 ]);
 
+export function serviceLabel(country) {
+  return country.serviceType === "work-permit" ? "Work Permit" : "Visitor Visa";
+}
+
 function destinationMediaMarkup(country) {
   if (!PHOTO_COUNTRIES.has(country.id)) {
     return `
@@ -71,7 +75,7 @@ export function destinationCardMarkup(country) {
         <div class="destination-card__body">
           <span>
             <span class="destination-card__name">${country.country}</span>
-            <span class="destination-card__label">Visitor Visa</span>
+            <span class="destination-card__label">${serviceLabel(country)}</span>
           </span>
           <span class="destination-card__arrow" aria-hidden="true">
             <svg width="16" height="16"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg>

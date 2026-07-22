@@ -2,7 +2,7 @@ import { initNav } from "../modules/nav.js";
 import { setCopyrightYear } from "../modules/footer.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { getCountryById } from "../modules/data-service.js";
-import { PHOTO_COUNTRIES } from "../modules/destination-card.js";
+import { PHOTO_COUNTRIES, serviceLabel } from "../modules/destination-card.js";
 
 const INFO_FIELDS = [
   { key: "visaType", label: "Visa Type", icon: "icon-document" },
@@ -79,8 +79,9 @@ function heroMediaMarkup(country) {
 }
 
 function renderCountry(country) {
-  const title = `${country.country} Visitor Visa Requirements | RainTree Immigration`;
-  const description = `${country.country} visitor visa: ${country.visaType}, ${country.lengthOfStay}, processing in ${country.processingTime}. Full requirements and document checklist from RainTree Immigration.`;
+  const label = serviceLabel(country);
+  const title = `${country.country} ${label} Requirements | RainTree Immigration`;
+  const description = `${country.country} ${label.toLowerCase()}: ${country.visaType}, ${country.lengthOfStay}, processing in ${country.processingTime}. Full requirements and document checklist from RainTree Immigration.`;
   const canonicalUrl = `https://www.raintreeimmigration.com/country-detail.html?country=${encodeURIComponent(country.id)}`;
 
   document.title = title;
@@ -100,13 +101,13 @@ function renderCountry(country) {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.raintreeimmigration.com/" },
         { "@type": "ListItem", position: 2, name: "Countries", item: "https://www.raintreeimmigration.com/countries.html" },
-        { "@type": "ListItem", position: 3, name: `${country.country} Visa`, item: canonicalUrl },
+        { "@type": "ListItem", position: 3, name: `${country.country} ${label}`, item: canonicalUrl },
       ],
     });
   }
 
   document.querySelectorAll("[data-breadcrumb-country]").forEach((el) => {
-    el.textContent = `${country.country} Visa`;
+    el.textContent = `${country.country} ${label}`;
   });
 
   const heroMedia = document.querySelector("[data-hero-media]");
@@ -118,12 +119,15 @@ function renderCountry(country) {
     el.textContent = country.flag ?? "";
   });
   document.querySelectorAll("[data-hero-title]").forEach((el) => {
-    el.textContent = `${country.country} Visitor Visa`;
+    el.textContent = `${country.country} ${label}`;
   });
 
   const purposeText = country.purpose.join(", ");
   document.querySelectorAll("[data-hero-desc]").forEach((el) => {
-    el.textContent = `Planning to visit ${country.country} for ${purposeText.toLowerCase()}? Here's everything you need to know about the visa process, required documents, and processing time.`;
+    el.textContent =
+      country.serviceType === "work-permit"
+        ? `Planning to work in ${country.country}? Here's everything you need to know about the work permit process, required documents, and processing time.`
+        : `Planning to visit ${country.country} for ${purposeText.toLowerCase()}? Here's everything you need to know about the visa process, required documents, and processing time.`;
   });
 
   const purposeList = document.querySelector("[data-hero-purpose]");

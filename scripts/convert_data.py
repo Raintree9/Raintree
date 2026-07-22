@@ -57,6 +57,34 @@ REGION_BY_FLAG = {
 # page markup. Order matches the approved Home mockup.
 FEATURED_IDS = ["canada", "australia", "united-kingdom", "schengen", "japan"]
 
+# Work permit destinations aren't in the visitor-visa CSV at all — sourced
+# from real client hiring postings (RainTree's own Dubai job flyers +
+# hiring notice), not guessed. Keep this list in sync with whatever's
+# actually open; Slovakia was removed once that opportunity closed.
+WORK_PERMIT_COUNTRIES = [
+    {
+        "id": "dubai",
+        "serviceType": "work-permit",
+        "flag": "🇦🇪",
+        "country": "Dubai",
+        "region": "Middle East",
+        "visaType": "Employment Visa (Employer-Sponsored)",
+        "lengthOfStay": "Contract-based, renewable",
+        "visaValidity": "As per employment contract",
+        "entryType": "Single (employer-sponsored)",
+        "method": "Employer-Sponsored Work Visa",
+        "purpose": ["Employment"],
+        "processingTime": "15–20 Working Days",
+        "documents": [
+            "Valid passport",
+            "Passport-size photographs",
+            "Minimal supporting documents (confirmed during consultation)",
+        ],
+        "featured": False,
+        "featuredOrder": None,
+    },
+]
+
 
 def extract_flag(text):
     if not isinstance(text, str):
@@ -158,6 +186,8 @@ def main():
         record["featuredOrder"] = order
 
     empty_docs = [c["country"] for c in countries if not c["documents"]]
+
+    countries.extend(WORK_PERMIT_COUNTRIES)
 
     OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
