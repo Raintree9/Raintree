@@ -68,13 +68,20 @@
      full space-20 section padding plus the panel's own top padding stacks
      up to a much bigger gap here than most section-to-section transitions
      feel like on a small screen. Only the *top* padding is touched —
-     panel size, card-to-card gap, and everything else stays as-is. */
+     panel size and everything else stays as-is. Panel-to-panel gap is
+     also trimmed here so both headings ("Application Status Tracker" and
+     "Why Clients Choose Us") end up with the same, minimal space above
+     them instead of the tracker's being tighter than the second panel's. */
   .services-trust-section {
-    padding-top: var(--space-10);
+    padding-top: var(--space-5);
+  }
+
+  .services-trust {
+    gap: var(--space-5);
   }
 
   .services-trust__panel {
-    padding-top: var(--space-5);
+    padding-top: var(--space-4);
   }
 }
 
@@ -166,7 +173,7 @@
 @media (max-width: 599px) {
   .status-tracker {
     grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-5);
+    gap: var(--space-4);
   }
 
   .status-tracker::before {
@@ -175,6 +182,17 @@
 
   .status-tracker__step {
     flex-direction: row;
+    /* align-items:center (inherited from the desktop column layout) puts
+       the single-line status text floating between the two lines when a
+       label wraps (e.g. "Document Verification") — anchor everything to
+       the top instead so it reads as belonging with the label's first
+       line, same as the icon. */
+    align-items: flex-start;
     text-align: left;
+    gap: var(--space-3);
+  }
+
+  .status-tracker__icon {
+    margin-top: 2px;
   }
 }
