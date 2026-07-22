@@ -63,6 +63,21 @@
   }
 }
 
+@media (max-width: 767px) {
+  /* This section follows a regular content section, not a hero, so the
+     full space-20 section padding plus the panel's own top padding stacks
+     up to a much bigger gap here than most section-to-section transitions
+     feel like on a small screen. Only the *top* padding is touched —
+     panel size, card-to-card gap, and everything else stays as-is. */
+  .services-trust-section {
+    padding-top: var(--space-10);
+  }
+
+  .services-trust__panel {
+    padding-top: var(--space-5);
+  }
+}
+
 .status-tracker {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));

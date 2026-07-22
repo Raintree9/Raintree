@@ -79,6 +79,12 @@
   margin-bottom: var(--space-4);
 }
 
+@media (max-width: 767px) {
+  .service-card__icon {
+    margin-bottom: var(--space-2);
+  }
+}
+
 .service-card__icon svg {
   width: 22px;
   height: 22px;
@@ -213,6 +219,15 @@
 .feature-card__icon svg {
   width: 26px;
   height: 26px;
+}
+
+/* Scoped to About's Mission/Vision cards only (not Core Values or Why
+   Choose Us, which also use .feature-card) — mobile-only so desktop is
+   unaffected. */
+@media (max-width: 767px) {
+  .feature-card--tight .feature-card__icon {
+    margin-bottom: var(--space-2);
+  }
 }
 
 .feature-card__title {
