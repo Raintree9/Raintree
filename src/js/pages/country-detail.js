@@ -122,6 +122,15 @@ function renderCountry(country) {
     el.textContent = `${country.country} ${label}`;
   });
 
+  document.querySelectorAll("[data-hero-status]").forEach((el) => {
+    if (country.status === "closed") {
+      el.textContent = `Applications for ${country.country} are currently closed`;
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
+  });
+
   const purposeText = country.purpose.join(", ");
   document.querySelectorAll("[data-hero-desc]").forEach((el) => {
     el.textContent =

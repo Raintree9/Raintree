@@ -58,13 +58,17 @@ REGION_BY_FLAG = {
 FEATURED_IDS = ["canada", "australia", "united-kingdom", "schengen", "japan"]
 
 # Work permit destinations aren't in the visitor-visa CSV at all — sourced
-# from real client hiring postings (RainTree's own Dubai job flyers +
-# hiring notice), not guessed. Keep this list in sync with whatever's
-# actually open; Slovakia was removed once that opportunity closed.
+# from real client hiring postings (RainTree's own Dubai/Slovakia job
+# flyers + hiring notice), not guessed. "status" tracks whether the
+# opportunity is currently taking applications — a closed destination
+# stays in this list (badged "Closed" on the card, notice on its detail
+# page) rather than being removed, so the page is ready the moment it
+# reopens. Keep this in sync with what's actually open.
 WORK_PERMIT_COUNTRIES = [
     {
         "id": "dubai",
         "serviceType": "work-permit",
+        "status": "open",
         "flag": "🇦🇪",
         "country": "Dubai",
         "region": "Middle East",
@@ -75,6 +79,28 @@ WORK_PERMIT_COUNTRIES = [
         "method": "Employer-Sponsored Work Visa",
         "purpose": ["Employment"],
         "processingTime": "15–20 Working Days",
+        "documents": [
+            "Valid passport",
+            "Passport-size photographs",
+            "Minimal supporting documents (confirmed during consultation)",
+        ],
+        "featured": False,
+        "featuredOrder": None,
+    },
+    {
+        "id": "slovakia",
+        "serviceType": "work-permit",
+        "status": "closed",
+        "flag": "🇸🇰",
+        "country": "Slovakia",
+        "region": "Europe",
+        "visaType": "Employment Visa (Employer-Sponsored)",
+        "lengthOfStay": "Contract-based, renewable",
+        "visaValidity": "As per employment contract",
+        "entryType": "Single (employer-sponsored)",
+        "method": "Employer-Sponsored Work Visa",
+        "purpose": ["Employment"],
+        "processingTime": "Approximately 4 Months",
         "documents": [
             "Valid passport",
             "Passport-size photographs",

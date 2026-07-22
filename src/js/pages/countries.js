@@ -96,6 +96,11 @@ async function init() {
   const grid = document.querySelector("[data-countries-grid]");
   if (!grid) return;
 
+  const requestedService = new URLSearchParams(window.location.search).get("service");
+  if (SERVICES.some((service) => service.id === requestedService)) {
+    activeService = requestedService;
+  }
+
   try {
     allCountries = (await getCountries()).slice().sort((a, b) => a.country.localeCompare(b.country));
     renderServicePills();

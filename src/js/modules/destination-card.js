@@ -12,6 +12,7 @@ export const PHOTO_COUNTRIES = new Set([
   "cambodia",
   "canada",
   "china",
+  "dubai",
   "hong-kong",
   "indonesia",
   "japan",
@@ -21,6 +22,7 @@ export const PHOTO_COUNTRIES = new Set([
   "russia",
   "schengen",
   "singapore",
+  "slovakia",
   "south-korea",
   "sri-lanka",
   "taiwan",
@@ -68,10 +70,15 @@ function destinationMediaMarkup(country) {
 }
 
 export function destinationCardMarkup(country) {
+  const isClosed = country.status === "closed";
   return `
     <li>
-      <a class="destination-card card card--hoverable" href="country-detail.html?country=${encodeURIComponent(country.id)}">
+      <a
+        class="destination-card card card--hoverable${isClosed ? " destination-card--closed" : ""}"
+        href="country-detail.html?country=${encodeURIComponent(country.id)}"
+      >
         ${destinationMediaMarkup(country)}
+        ${isClosed ? `<span class="destination-card__status-badge">Closed</span>` : ""}
         <div class="destination-card__body">
           <span>
             <span class="destination-card__name">${country.country}</span>

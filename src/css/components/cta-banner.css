@@ -59,14 +59,17 @@
        would stretch any extra vertical space into the gap between them. */
     justify-content: flex-start;
     text-align: center;
-    padding: var(--space-8) var(--space-6);
+    padding: var(--space-6);
   }
 
   .cta-banner__content {
     flex-direction: column;
-    /* Same reason: flex-grow:1 (from the desktop "flex: 1 1 320px") has no
-       business stretching this block taller in a column layout. */
-    flex-grow: 0;
+    /* The desktop "flex: 1 1 320px" sets flex-basis:320px meant as a
+       minimum *width* for the row layout — in this column layout the same
+       basis becomes a *height* instead, forcing a 320px-tall box regardless
+       of actual content height. flex:none resets grow/shrink/basis so this
+       sizes to its content like a normal block. */
+    flex: none;
     text-align: center;
   }
 

@@ -578,6 +578,7 @@
   {
     "id": "dubai",
     "serviceType": "work-permit",
+    "status": "open",
     "flag": "🇦🇪",
     "country": "Dubai",
     "region": "Middle East",
@@ -590,6 +591,30 @@
       "Employment"
     ],
     "processingTime": "15–20 Working Days",
+    "documents": [
+      "Valid passport",
+      "Passport-size photographs",
+      "Minimal supporting documents (confirmed during consultation)"
+    ],
+    "featured": false,
+    "featuredOrder": null
+  },
+  {
+    "id": "slovakia",
+    "serviceType": "work-permit",
+    "status": "closed",
+    "flag": "🇸🇰",
+    "country": "Slovakia",
+    "region": "Europe",
+    "visaType": "Employment Visa (Employer-Sponsored)",
+    "lengthOfStay": "Contract-based, renewable",
+    "visaValidity": "As per employment contract",
+    "entryType": "Single (employer-sponsored)",
+    "method": "Employer-Sponsored Work Visa",
+    "purpose": [
+      "Employment"
+    ],
+    "processingTime": "Approximately 4 Months",
     "documents": [
       "Valid passport",
       "Passport-size photographs",

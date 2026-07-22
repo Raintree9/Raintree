@@ -61,6 +61,8 @@ DESTINATIONS = {
     "thailand": 0.04,       # golden Buddha statue's head must stay in frame
     "united-arab-emirates": 0.21,  # Burj Khalifa's tapering silhouette is the recognizable part, not just the tip
     "vietnam": 0.59,        # Hoi An lantern canal, avoid mountains/sky above
+    "dubai": 0.30,          # Burj Khalifa + "DUBAI" text label, avoid the fountain plaza at the very bottom
+    "slovakia": 0.05,       # "SLOVAKIA" text + castle towers near the top, avoid the river/bridge below
 }
 
 # service name -> vertical crop bias for a 4:5 portrait crop. Both service
