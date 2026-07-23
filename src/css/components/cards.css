@@ -88,13 +88,12 @@
   margin-bottom: var(--space-2);
 }
 
-/* Mobile only: icon sits beside the title instead of above it. Covers both
-   the plain .service-card__body and the image-bearing .service-card--media
-   variant (Visitor Visa / Work Permit), since both share this icon+title
-   pattern — the description paragraph and link still span full width on
-   their own row below. */
+/* Mobile only: icon sits beside the title instead of above it — scoped to
+   the image-bearing .service-card--media variant only (Visitor Visa / Work
+   Permit cards with a photo, on Home/About). The plain .service-card__body
+   (icon-only overview cards on the Services page) keeps its original
+   stacked layout — it was never meant to change. */
 @media (max-width: 767px) {
-  .service-card__body,
   .service-card--media .service-card__body {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -102,20 +101,20 @@
     column-gap: var(--space-3);
   }
 
-  .service-card__icon {
+  .service-card--media .service-card__icon {
     margin-bottom: 0;
   }
 
-  .service-card__title {
+  .service-card--media .service-card__title {
     margin-bottom: 0;
   }
 
-  .service-card__body > p {
+  .service-card--media .service-card__body > p {
     grid-column: 1 / -1;
     margin-top: var(--space-2);
   }
 
-  .service-card__link {
+  .service-card--media .service-card__link {
     grid-column: 1 / -1;
   }
 }

@@ -181,18 +181,26 @@
   }
 
   .status-tracker__step {
-    flex-direction: row;
-    /* align-items:center (inherited from the desktop column layout) puts
-       the single-line status text floating between the two lines when a
-       label wraps (e.g. "Document Verification") — anchor everything to
-       the top instead so it reads as belonging with the label's first
-       line, same as the icon. */
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-3);
+    row-gap: 2px;
     text-align: left;
-    gap: var(--space-3);
   }
 
   .status-tracker__icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
     margin-top: 2px;
+  }
+
+  .status-tracker__label {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .status-tracker__status {
+    grid-column: 2;
+    grid-row: 2;
   }
 }
