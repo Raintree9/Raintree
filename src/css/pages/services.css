@@ -89,6 +89,14 @@
   .services-trust__panel {
     padding: var(--space-4);
   }
+
+  /* "Application Status Tracker" is long enough that the default h2 size
+     (clamped to 30px here) wraps to 2 lines inside the panel's ~300px
+     width — sizing it down to text-xl (24px) is enough for it (and the
+     shorter "Why Clients Choose Us") to fit on a single line. */
+  .services-trust__title {
+    font-size: var(--text-xl);
+  }
 }
 
 .status-tracker {

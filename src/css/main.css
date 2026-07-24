@@ -477,6 +477,39 @@ strong {
   }
 }
 
+/* Mobile only: icon sits beside the title instead of above it — scoped to
+   .detail-row__content (Services page's Visitor Visa / Work Permit detail
+   sections) rather than the bare .detail-row content div, since About's
+   "Who We Are" row uses that same div shape with no icon at all and must
+   stay untouched. Description, checklist, and button still span full
+   width on their own rows below. */
+@media (max-width: 767px) {
+  .detail-row__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: var(--space-3);
+  }
+
+  .detail-row__content .detail-row__icon {
+    margin-bottom: 0;
+  }
+
+  .detail-row__content .detail-row__title {
+    margin-bottom: 0;
+  }
+
+  .detail-row__content > .detail-row__desc,
+  .detail-row__content > .checklist,
+  .detail-row__content > .btn {
+    grid-column: 1 / -1;
+  }
+
+  .detail-row__content > .detail-row__desc {
+    margin-top: var(--space-4);
+  }
+}
+
 .grid {
   display: grid;
   gap: var(--space-6);
