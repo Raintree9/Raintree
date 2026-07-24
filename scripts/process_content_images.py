@@ -93,11 +93,14 @@ TEAM_BIAS = 0.35  # About page team photo, favor faces over table
 # apart. Format: slide id -> (source stem, crop bias, optional pre-crop
 # box in source pixels applied before the ratio crop).
 HERO_SLIDES = {
-    # two travelers illustration — already near-square, centered crop
-    "slide-visa-experts": ("2df396f8c0e461402dc1e4644407203e", 0.5, None),
-    # travel-landmarks collage — centered crop keeps the main globe/figure;
-    # only trims the decorative signpost/food icons at the edges
-    "slide-destinations": ("9d943e19954282657dd175a80cb49f6f", 0.5, None),
+    # airport tarmac + "Travel dreams begin here" + passport/itinerary —
+    # top-weighted so the plane/text keep their full context while still
+    # keeping the passport in frame; the very top sky and bottom map/photo
+    # clutter are the parts trimmed.
+    "slide-visa-experts": ("work and visa permit", 0.35, None),
+    # travel mood-board collage with "TRAVEL" lettering — centered crop
+    # keeps the lettering and surrounding landmark photos in frame
+    "slide-destinations": ("20 travel destination", 0.5, None),
     # woman with suitcase + passport — top-weighted to keep her face and
     # the passport in frame, crop the legs/suitcase at the bottom
     "slide-process": ("5de439359b0833f83f2a20d6959407d1", 0.15, None),
@@ -180,9 +183,17 @@ def process_testimonials():
         print(f"  testimonials/{name}: {cropped.size} -> {TESTIMONIAL_WIDTHS}")
 
 
+def find_hero_source(stem):
+    for ext in (".jpg", ".jpeg", ".png"):
+        candidate = HERO_SOURCE_DIR / f"{stem}{ext}"
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError(f"No source file found for '{stem}' in {HERO_SOURCE_DIR}")
+
+
 def process_hero_slides():
     for name, (stem, bias, pre_crop) in HERO_SLIDES.items():
-        src = HERO_SOURCE_DIR / f"{stem}.jpg"
+        src = find_hero_source(stem)
         img = Image.open(src)
         if pre_crop:
             img = img.crop(pre_crop)

@@ -80,8 +80,14 @@
     gap: var(--space-5);
   }
 
+  /* The panel's own left/right padding (space-8, unchanged from desktop)
+     stacked on top of the page container's padding made this content sit
+     noticeably narrower than the plain "Our Simple Visa Process" section
+     above it, which has no card wrapper. Trimming the panel's side padding
+     to match its reduced top padding lets both sections use the same
+     available width on small screens. */
   .services-trust__panel {
-    padding-top: var(--space-4);
+    padding: var(--space-4);
   }
 }
 
