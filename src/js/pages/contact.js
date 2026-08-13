@@ -1,6 +1,7 @@
 import { initNav } from "../modules/nav.js";
 import { setCopyrightYear } from "../modules/footer.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
+import { trackLead, initContactLinkTracking } from "../modules/pixel.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[0-9+\-\s()]{7,}$/;
@@ -61,6 +62,8 @@ function initContactForm() {
 
       if (!response.ok) throw new Error(`Formspree responded with ${response.status}`);
 
+      trackLead({ content_name: "Contact Form", content_category: form.elements.service?.value || "other" });
+
       form.hidden = true;
       const success = document.querySelector("[data-form-success]");
       if (success) {
@@ -81,4 +84,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setCopyrightYear();
   renderFooterCountries();
   initContactForm();
+  initContactLinkTracking();
 });

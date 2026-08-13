@@ -3,6 +3,7 @@ import { setCopyrightYear } from "../modules/footer.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { getCountries } from "../modules/data-service.js";
 import { destinationCardMarkup } from "../modules/destination-card.js";
+import { initContactLinkTracking } from "../modules/pixel.js";
 
 const REGIONS = ["All Countries", "Asia", "Europe", "North America", "Oceania", "Middle East"];
 const SERVICES = [
@@ -118,4 +119,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setCopyrightYear();
   renderFooterCountries();
   init();
+  initContactLinkTracking();
 });

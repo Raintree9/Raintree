@@ -3,6 +3,7 @@ import { setCopyrightYear } from "../modules/footer.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { getCountryById } from "../modules/data-service.js";
 import { PHOTO_COUNTRIES, serviceLabel } from "../modules/destination-card.js";
+import { trackCustom, initContactLinkTracking } from "../modules/pixel.js";
 
 const INFO_FIELDS = [
   { key: "visaType", label: "Visa Type", icon: "icon-document" },
@@ -160,6 +161,16 @@ function renderCountry(country) {
   document.querySelectorAll("[data-cta-country-name]").forEach((el) => {
     el.textContent = country.country;
   });
+
+  // Custom event, not Lead — this is a page view of a specific destination,
+  // not a confirmed enquiry. Fires for both open and closed destinations
+  // (e.g. Slovakia) so the "status" param stays useful in reporting; the
+  // closed status here is exactly why Lead must never be inferred from it.
+  trackCustom("ViewDestination", {
+    country: country.country,
+    serviceType: country.serviceType,
+    status: country.status,
+  });
 }
 
 function showNotFound() {
@@ -196,4 +207,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setCopyrightYear();
   renderFooterCountries();
   init();
+  initContactLinkTracking();
 });

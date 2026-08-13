@@ -3,6 +3,7 @@ import { setCopyrightYear } from "../modules/footer.js";
 import { getCountries } from "../modules/data-service.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { destinationCardMarkup } from "../modules/destination-card.js";
+import { initContactLinkTracking } from "../modules/pixel.js";
 
 function byFeaturedOrder(a, b) {
   return (a.featuredOrder ?? 0) - (b.featuredOrder ?? 0);
@@ -204,4 +205,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFeaturedDestinations();
   renderTestimonials();
   renderFooterCountries();
+  initContactLinkTracking();
 });
