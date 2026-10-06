@@ -1,9 +1,16 @@
 import { initNav } from "../modules/nav.js";
-import { setCopyrightYear } from "../modules/footer.js";
+import { setCopyrightYear, setOfficeHours } from "../modules/footer.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { getCountryById } from "../modules/data-service.js";
 import { PHOTO_COUNTRIES, serviceLabel } from "../modules/destination-card.js";
-import { trackCustom, initContactLinkTracking } from "../modules/pixel.js";
+import { trackViewContent, initContactLinkTracking } from "../modules/pixel.js";
+
+function contentCategoryFor(country) {
+  if (country.serviceType === "work-permit") return "work-permit-docs";
+  if (country.purpose?.includes("Student")) return "student";
+  if (country.purpose?.includes("Business")) return "business";
+  return "visitor";
+}
 
 const INFO_FIELDS = [
   { key: "visaType", label: "Visa Type", icon: "icon-document" },
@@ -162,13 +169,14 @@ function renderCountry(country) {
     el.textContent = country.country;
   });
 
-  // Custom event, not Lead — this is a page view of a specific destination,
-  // not a confirmed enquiry. Fires for both open and closed destinations
-  // (e.g. Slovakia) so the "status" param stays useful in reporting; the
-  // closed status here is exactly why Lead must never be inferred from it.
-  trackCustom("ViewDestination", {
-    country: country.country,
-    serviceType: country.serviceType,
+  // Standard ViewContent, not Lead — this is a page view of a specific
+  // destination, not a confirmed enquiry. Fires for both open and closed
+  // destinations (e.g. Slovakia) so "status" stays useful in reporting;
+  // the closed status here is exactly why Lead must never be inferred
+  // from a destination view/click.
+  trackViewContent({
+    content_name: `${country.country} ${label}`,
+    content_category: contentCategoryFor(country),
     status: country.status,
   });
 }
@@ -205,6 +213,7 @@ async function init() {
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   setCopyrightYear();
+  setOfficeHours();
   renderFooterCountries();
   init();
   initContactLinkTracking();

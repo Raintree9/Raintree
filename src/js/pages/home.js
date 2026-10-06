@@ -1,5 +1,5 @@
 import { initNav } from "../modules/nav.js";
-import { setCopyrightYear } from "../modules/footer.js";
+import { setCopyrightYear, setOfficeHours } from "../modules/footer.js";
 import { getCountries } from "../modules/data-service.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { destinationCardMarkup } from "../modules/destination-card.js";
@@ -200,6 +200,7 @@ function initHeroSlideshow() {
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   setCopyrightYear();
+  setOfficeHours();
   initHeroSlideshow();
   initTestimonialCarousel();
   renderFeaturedDestinations();

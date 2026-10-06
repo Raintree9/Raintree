@@ -42,8 +42,34 @@
 }
 
 .form-field input:invalid[data-touched="true"],
-.form-field textarea:invalid[data-touched="true"] {
+.form-field textarea:invalid[data-touched="true"],
+.form-field select:invalid[data-touched="true"] {
   border-color: var(--color-danger);
+}
+
+.form-field--checkbox {
+  margin-bottom: var(--space-5);
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+}
+
+.form-checkbox a {
+  color: var(--color-primary);
 }
 
 .form-field__error {

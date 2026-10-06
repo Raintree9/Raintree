@@ -10,9 +10,19 @@ All source photos arrived portrait-oriented. Destinations, the team photo,
 and testimonials crop to landscape/square boxes that suit their content
 fine. The two service photos (visitor-visa, work-permit) are different:
 they're portrait/square-native subjects (a traveler looking up at a plane
-overhead; a person holding a passport), and forcing them into a landscape
-box cropped the actual subject out. Those two crop to 4:5 portrait instead
-— see cards.css / layout.css for the container layouts built around that.
+overhead; two people reviewing a clipboard form), and forcing them into a
+landscape box cropped the actual subject out. Those two crop to 4:5
+portrait instead — see cards.css / layout.css for the container layouts
+built around that.
+
+Image sources (free-licence, no attribution required but noted here for
+the record):
+  - assets/images/Place holders/work-permit.jpg — Pexels, photo 7731400
+    (pexels.com/photo/a-person-in-black-blazer-pointing-the-document-on-the-clipboard-7731400)
+  - assets/images/hero animation/work and visa permit.jpeg — Pexels, photo
+    16108890 (pexels.com/photo/man-walking-in-an-airport-terminal-16108890)
+  Both replace earlier sources that showed a passport in frame, flagged
+  for Meta ad policy ahead of a new ad account.
 
 Every crop below has a hand-picked vertical crop bias (0.0 = crop window
 starts at the very top of the source, 1.0 = crop window ends at the very
@@ -73,7 +83,10 @@ DESTINATIONS = {
 # the service-card and detail-row placements (see cards.css / layout.css).
 SERVICES = {
     "visitor-visa": 0.0,   # top-aligned: keeps the full plane AND the traveler's head/shoulders
-    "work-permit": 0.5,    # centered: face + both hands + documents already well-balanced
+    # centered: two people reviewing a clipboard form, well-balanced already.
+    # (Replaces an earlier source that showed a passport, flagged for Meta
+    # ad policy — this one is a generic office/consultation photo instead.)
+    "work-permit": 0.5,
 }
 
 # testimonial author -> vertical crop bias for a 1:1 headshot crop
@@ -93,11 +106,12 @@ TEAM_BIAS = 0.35  # About page team photo, favor faces over table
 # apart. Format: slide id -> (source stem, crop bias, optional pre-crop
 # box in source pixels applied before the ratio crop).
 HERO_SLIDES = {
-    # airport tarmac + "Travel dreams begin here" + passport/itinerary —
-    # top-weighted so the plane/text keep their full context while still
-    # keeping the passport in frame; the very top sky and bottom map/photo
-    # clutter are the parts trimmed.
-    "slide-visa-experts": ("work and visa permit", 0.35, None),
+    # traveler walking an airport concourse on a moving walkway — no
+    # documents/stamps in frame (replaces an earlier source that showed a
+    # passport, flagged for Meta ad policy). Subject sits right-of-center
+    # in the original wide frame, so the crop is weighted right to keep
+    # him centered instead of the left-side blurred background crowd.
+    "slide-visa-experts": ("work and visa permit", 0.8, None),
     # travel mood-board collage with "TRAVEL" lettering — centered crop
     # keeps the lettering and surrounding landmark photos in frame
     "slide-destinations": ("20 travel destination", 0.5, None),

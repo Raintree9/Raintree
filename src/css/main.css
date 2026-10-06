@@ -1006,6 +1006,23 @@ strong {
   color: var(--color-accent);
 }
 
+/* Compliance disclaimer, shown on every page — required so no page or ad
+   landing page can ship without it (see privacy-policy.html / Meta ad
+   policy notes in docs). Deliberately plain text, no emphasis styling,
+   so it doesn't compete visually with the real footer content above it. */
+.site-footer__disclaimer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer__disclaimer-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-4) var(--container-padding);
+  font-size: var(--text-xs);
+  color: var(--color-text-on-dark-muted);
+  text-align: center;
+}
+
 .site-footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1652,8 +1669,34 @@ strong {
 }
 
 .form-field input:invalid[data-touched="true"],
-.form-field textarea:invalid[data-touched="true"] {
+.form-field textarea:invalid[data-touched="true"],
+.form-field select:invalid[data-touched="true"] {
   border-color: var(--color-danger);
+}
+
+.form-field--checkbox {
+  margin-bottom: var(--space-5);
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: var(--color-primary);
+}
+
+.form-checkbox a {
+  color: var(--color-primary);
 }
 
 .form-field__error {

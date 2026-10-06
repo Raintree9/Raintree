@@ -1,5 +1,5 @@
 import { initNav } from "../modules/nav.js";
-import { setCopyrightYear } from "../modules/footer.js";
+import { setCopyrightYear, setOfficeHours } from "../modules/footer.js";
 import { renderFooterCountries } from "../modules/footer-countries.js";
 import { getCountries } from "../modules/data-service.js";
 import { destinationCardMarkup } from "../modules/destination-card.js";
@@ -117,6 +117,7 @@ async function init() {
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   setCopyrightYear();
+  setOfficeHours();
   renderFooterCountries();
   init();
   initContactLinkTracking();
