@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 COUNTRIES_JSON = ROOT / "src" / "data" / "countries.json"
 OUTPUT = ROOT / "sitemap.xml"
 
-SITE_URL = "https://www.raintreeimmigration.com"
+SITE_URL = "https://raintreeimmigration.com"
 TODAY = date.today().isoformat()
 
 STATIC_PAGES = [

@@ -90,7 +90,7 @@ function renderCountry(country) {
   const label = serviceLabel(country);
   const title = `${country.country} ${label} Requirements | RainTree Immigration`;
   const description = `${country.country} ${label.toLowerCase()}: ${country.visaType}, ${country.lengthOfStay}, processing in ${country.processingTime}. Full requirements and document checklist from RainTree Immigration.`;
-  const canonicalUrl = `https://www.raintreeimmigration.com/country-detail.html?country=${encodeURIComponent(country.id)}`;
+  const canonicalUrl = `https://raintreeimmigration.com/country-detail.html?country=${encodeURIComponent(country.id)}`;
 
   document.title = title;
   updateMeta("meta-description", "content", description);
@@ -107,8 +107,8 @@ function renderCountry(country) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.raintreeimmigration.com/" },
-        { "@type": "ListItem", position: 2, name: "Countries", item: "https://www.raintreeimmigration.com/countries.html" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://raintreeimmigration.com/" },
+        { "@type": "ListItem", position: 2, name: "Countries", item: "https://raintreeimmigration.com/countries.html" },
         { "@type": "ListItem", position: 3, name: `${country.country} ${label}`, item: canonicalUrl },
       ],
     });

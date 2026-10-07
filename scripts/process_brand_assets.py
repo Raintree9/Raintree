@@ -24,7 +24,6 @@ SRC_HERO = SOURCE_DIR / "hero-banner-original.png"
 
 BRAND_DIR = ROOT / "assets" / "images" / "brand"
 HERO_DIR = ROOT / "assets" / "images" / "hero"
-OG_DIR = ROOT / "assets" / "images" / "og"
 
 BRAND_GREEN = (11, 61, 46)  # matches --color-primary
 
@@ -108,12 +107,12 @@ def main():
         hero.resize((w, h), Image.LANCZOS).save(HERO_DIR / f"hero-banner-{w}.jpg", quality=82, optimize=True)
         hero.resize((w, h), Image.LANCZOS).save(HERO_DIR / f"hero-banner-{w}.webp", quality=82, method=6)
 
-    # ---- Open Graph image (1200 wide; source aspect ~2.4:1, not the
-    # "ideal" 1.91:1, but platforms auto-crop previews reasonably well) ----
-    OG_DIR.mkdir(parents=True, exist_ok=True)
-    og_w = 1200
-    og_h = round(og_w * aspect)
-    hero.resize((og_w, og_h), Image.LANCZOS).save(OG_DIR / "og-image.jpg", quality=85, optimize=True)
+    # Open Graph image: NOT generated from the hero mockup above — that
+    # source shows an illustrated passport and baked-in promotional text,
+    # flagged for Meta ad policy. assets/images/og/og-default.jpg is a
+    # separate, compliant 1200x630 composite (brand logo + office photo)
+    # and isn't reproduced by this script; see git history for how it was
+    # built if it ever needs regenerating.
 
     print("Logo full lockup:", full_lockup.size)
     print("Logo mark (pre-pad):", mark.size, "-> square:", mark_square.size)

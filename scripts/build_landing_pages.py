@@ -18,6 +18,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LP_DIR = ROOT / "lp"
 
+SITE_URL = "https://raintreeimmigration.com"
+OG_IMAGE = f"{SITE_URL}/assets/images/og/og-default.jpg"
+
 LANDING_PAGES = [
     {
         "slug": "canada-visitor-visa",
@@ -82,6 +85,25 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta name="description" content="Documentation and application support for your {country} visitor visa. Local Coimbatore office, transparent process, free consultation." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#0B3D2E" />
+  <link rel="canonical" href="{page_url}" />
+
+  <!-- Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RainTree Immigration" />
+  <meta property="og:title" content="{country} Visitor Visa Documentation Support | RainTree Immigration" />
+  <meta property="og:description" content="Documentation and application support for your {country} visitor visa. Local Coimbatore office, transparent process, free consultation." />
+  <meta property="og:url" content="{page_url}" />
+  <meta property="og:image" content="{og_image}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="RainTree Immigration logo" />
+  <meta property="og:locale" content="en_IN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{country} Visitor Visa Documentation Support | RainTree Immigration" />
+  <meta name="twitter:description" content="Documentation and application support for your {country} visitor visa. Local Coimbatore office, transparent process, free consultation." />
+  <meta name="twitter:image" content="{og_image}" />
+  <!-- End Social Meta -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/brand/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="180x180" href="../../assets/images/brand/favicon-180.png" />
@@ -217,7 +239,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
           </p>
 
           <form data-contact-form data-lp-slug="{slug}" novalidate action="https://formspree.io/f/meeyqlrn" method="POST">
-            <input type="hidden" name="_next" value="https://www.raintreeimmigration.com/thank-you.html" />
+            <input type="hidden" name="_next" value="https://raintreeimmigration.com/thank-you.html" />
             <input type="hidden" name="landingPage" value="{slug}" />
             <input type="hidden" name="utm_source" data-utm="utm_source" value="" />
             <input type="hidden" name="utm_campaign" data-utm="utm_campaign" value="" />
@@ -386,6 +408,8 @@ def main():
             official_label=page["official_label"],
             trust_points_markup=trust_markup,
             steps_markup=steps_markup,
+            page_url=f"{SITE_URL}/lp/{page['slug']}/",
+            og_image=OG_IMAGE,
         )
         out_dir = LP_DIR / page["slug"]
         out_dir.mkdir(parents=True, exist_ok=True)
