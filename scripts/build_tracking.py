@@ -124,12 +124,6 @@ def gtm_noscript_block():
 
 def meta_pixel_block():
     pixel_id = CONFIG["metaPixelId"]
-    verification = CONFIG.get("metaDomainVerification", "").strip()
-    verification_tag = (
-        f'\n  <meta name="facebook-domain-verification" content="{verification}" />'
-        if verification
-        else ""
-    )
     return f"""<!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -146,7 +140,18 @@ def meta_pixel_block():
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id={pixel_id}&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Meta Pixel Code -->{verification_tag}"""
+  <!-- End Meta Pixel Code -->"""
+
+
+def domain_verification_block():
+    # Markers stay fixed regardless of whether a value is set, so this
+    # stays idempotent across both an empty->set transition and ordinary
+    # re-runs — the earlier version appended this tag as trailing text
+    # outside the Meta Pixel block's own markers, which silently duplicated
+    # it on every re-run since nothing matched it on the next pass.
+    verification = CONFIG.get("metaDomainVerification", "").strip()
+    tag_line = f'\n  <meta name="facebook-domain-verification" content="{verification}" />' if verification else ""
+    return f"<!-- Meta Domain Verification -->{tag_line}\n  <!-- End Meta Domain Verification -->"
 
 
 def social_meta_block(meta):
@@ -230,6 +235,30 @@ def apply_social_meta(content, meta):
     return content, False
 
 
+STRAY_VERIFICATION_PATTERN = re.compile(r'\s*<meta name="facebook-domain-verification"[^>]*/>')
+PIXEL_END_MARKER = "<!-- End Meta Pixel Code -->"
+
+
+def apply_domain_verification(content):
+    new_block = domain_verification_block()
+
+    content, changed = replace_block(
+        content, "<!-- Meta Domain Verification -->", "<!-- End Meta Domain Verification -->", new_block
+    )
+    if changed:
+        return content, True
+
+    # Strip any stray unmarked tag(s) left by the pre-marker version of this
+    # script, which duplicated on every re-run instead of replacing.
+    content = STRAY_VERIFICATION_PATTERN.sub("", content)
+
+    idx = content.find(PIXEL_END_MARKER)
+    if idx == -1:
+        return content, False
+    insert_at = idx + len(PIXEL_END_MARKER)
+    return content[:insert_at] + "\n  " + new_block + content[insert_at:], True
+
+
 def main():
     updated = []
     for page in PAGES:
@@ -240,6 +269,7 @@ def main():
         original = content
         for start_marker, end_marker, block_fn in BLOCKS:
             content, _ = replace_block(content, start_marker, end_marker, block_fn())
+        content, _ = apply_domain_verification(content)
         if page in PAGE_META:
             content, _ = apply_social_meta(content, PAGE_META[page])
         if content != original:
